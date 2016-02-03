@@ -1,19 +1,19 @@
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 
-#include "ExecutionCore1.hpp"
+#include "ExecutionCore2.hpp"
 
 namespace teo
 {
 
 /************************************************************************/
 
-bool ExecutionCore1::configure(ResourceFinder &rf) {
+bool ExecutionCore2::configure(ResourceFinder &rf) {
 
     //ConstString fileName(DEFAULT_FILE_NAME);
     
     printf("--------------------------------------------------------------\n");
     if (rf.check("help")) {
-        printf("ExecutionCore1 options:\n");
+        printf("ExecutionCore2 options:\n");
         printf("\t--help (this help)\t--from [file.ini]\t--context [path]\n");
         //printf("\t--file (default: \"%s\")\n",fileName.c_str());
     }
@@ -28,7 +28,7 @@ bool ExecutionCore1::configure(ResourceFinder &rf) {
     //
     Property headOptions;
     headOptions.put("device","remote_controlboard");
-    headOptions.put("local","/executionCore1/head");
+    headOptions.put("local","/executionCore2/head");
     headOptions.put("remote","/teo/head");
     headDevice.open(headOptions);
     if( ! headDevice.isValid() ) {
@@ -42,36 +42,36 @@ bool ExecutionCore1::configure(ResourceFinder &rf) {
     inCvPort.setIPositionControl(iPositionControl);
 
     //-----------------OPEN LOCAL PORTS------------//
-    inSrPort.setInCvPortPtr(&inCvPort);
+ //   inSrPort.setInCvPortPtr(&inCvPort);
     inCvPort.useCallback();
-    inSrPort.useCallback();
-    inSrPort.open("/executionCore1/dialogueManager/command:i");
-    inCvPort.open("/executionCore1/cv/state:i");
+ //   inSrPort.useCallback();
+ //   inSrPort.open("/executionCore2/dialogueManager/command:i");
+    inCvPort.open("/executionCore2/cv/state:i");
 
     return true;
 }
 
 /************************************************************************/
-double ExecutionCore1::getPeriod() {
+double ExecutionCore2::getPeriod() {
     return 2.0;  // Fixed, in seconds, the slow thread that calls updateModule below
 }
 
 /************************************************************************/
-bool ExecutionCore1::updateModule() {
+bool ExecutionCore2::updateModule() {
     //printf("StateMachine in state [%d]. ExecutionCore1 alive...\n", stateMachine.getMachineState());
     return true;
 }
 
 /************************************************************************/
 
-bool ExecutionCore1::interruptModule() {
-    printf("ExecutionCore1 closing...\n");
+bool ExecutionCore2::interruptModule() {
+    printf("ExecutionCore2 closing...\n");
     inCvPort.disableCallback();
-    inSrPort.disableCallback();
+//    inSrPort.disableCallback();
     inCvPort.interrupt();
-    inSrPort.interrupt();
+//    inSrPort.interrupt();
     inCvPort.close();
-    inSrPort.close();
+//    inSrPort.close();
     return true;
 }
 

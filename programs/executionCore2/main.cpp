@@ -18,13 +18,13 @@
  *
  * <hr>
  *
- * This file can be edited at executionCore1
+ * This file can be edited at executionCore2
  *
  */
 
 #include <yarp/os/all.h>
 
-#include "ExecutionCore1.hpp"
+#include "ExecutionCore2.hpp"
 
 using namespace yarp::os;
 
@@ -32,11 +32,11 @@ int main(int argc, char **argv) {
 
     ResourceFinder rf;
     rf.setVerbose(true);
-    rf.setDefaultContext("executionCore1");
-    rf.setDefaultConfigFile("executionCore1.ini");
+    rf.setDefaultContext("executionCore2");
+    rf.setDefaultConfigFile("executionCore2.ini");
     rf.configure(argc, argv);
 
-    teo::ExecutionCore1 mod;
+    teo::ExecutionCore2 mod;
     if(rf.check("help")) {
         return mod.runModule(rf);
     }
