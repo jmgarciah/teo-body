@@ -15,11 +15,11 @@ void InCvPort::onRead(Bottle& b) {
     double y = b.get(1).asDouble();
     double z = b.get(2).asDouble();
     printf("%f %f %f\n",x,y,z);
-    if( x > 50 ) iPositionControl->relativeMove(0, -2);
-    if( x < -50 ) iPositionControl->relativeMove(0, 2);
+    if( x > -200 ) iPositionControl->relativeMove(0, 1);
+    if( x < -210 ) iPositionControl->relativeMove(0, -1);
     //
-    if( y > 50 ) iPositionControl->relativeMove(1, 2);
-    if( y < -50 ) iPositionControl->relativeMove(1, -2);
+    if( y > -240 ) iPositionControl->relativeMove(1, 1);
+    if( y < -260 ) iPositionControl->relativeMove(1, -1);
 
 }
 
