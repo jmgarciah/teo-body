@@ -16,7 +16,7 @@ namespace teo
 {
 
 /**
- * @ingroup executionCore1
+ * @ingroup executionCore2
  *
  * @brief Input port of computer vision data.
  *
@@ -27,7 +27,10 @@ class InCvPort : public BufferedPort<Bottle> {
         InCvPort(): follow(false) {}
 
         void setIPositionControl(yarp::dev::IPositionControl *iPositionControl) {
-            this->iPositionControl = iPositionControl;
+            this->iPositionControl = iPositionControl; 
+        }
+        void setIVelocityControl(yarp::dev::IVelocityControl *iVelocityControl) {
+            this->iVelocityControl = iVelocityControl;
         }
 
         void setFollow(bool value);
@@ -38,6 +41,7 @@ protected:
         /** Callback on incoming Bottle. **/
         virtual void onRead(Bottle& b);
 
+        yarp::dev::IVelocityControl *iVelocityControl;
         yarp::dev::IPositionControl *iPositionControl;
 };
 

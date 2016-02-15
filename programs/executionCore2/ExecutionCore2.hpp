@@ -33,6 +33,7 @@ class ExecutionCore2 : public RFModule {
         InCvPort inCvPort;
         yarp::dev::PolyDriver headDevice;
         yarp::dev::IPositionControl *iPositionControl;
+        yarp::dev::IVelocityControl *iVelocityControl;
 
         bool interruptModule();
         double getPeriod();
