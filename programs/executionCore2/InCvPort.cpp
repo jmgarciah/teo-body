@@ -36,19 +36,37 @@ void InCvPort::onRead(Bottle& b) {
 
     printf("%f %f %f\n",x,y,z);
 
-    if( x > -150 ) iVelocityControl->velocityMove(0, 5); //Id motor. Velocity [deg/s].
-    if( x > -170 ) iVelocityControl->velocityMove(0, 2);
-    if( x > -190 ) iVelocityControl->velocityMove(0, 1);
-    if( x < -220 ) iVelocityControl->velocityMove(0, -1);
-    if( x < -240 ) iVelocityControl->velocityMove(0, -2);
-    if( x < -260 ) iVelocityControl->velocityMove(0, -5);
+    if( x > -150 ) {
+        iVelocityControl->velocityMove(0, 5.0); //Id motor. Velocity [deg/s].
+        printf("%f\n",x);
+    }
+    else if( x > -170 ) {
+        iVelocityControl->velocityMove(0, 2.0);
+        printf("%f\n",y);
+    }
+    else if( x > -190 ) {
+        iVelocityControl->velocityMove(0, 1.0);
+        printf("%f\n",z);
+    }
+    else if( x < -220 ) {
+        iVelocityControl->velocityMove(0, -1.0);
+        printf("%f\n",x);
+    }
+    else if( x < -240 ) {
+        iVelocityControl->velocityMove(0, -2.0);
+        printf("%f\n",y);
+    }
+    else if( x < -260 ) {
+        iVelocityControl->velocityMove(0, -5.0);
+        printf("%f\n",z);
+    }
     //
-    if( y > -190 ) iVelocityControl->velocityMove(0, 5);
-    if( y > -210 ) iVelocityControl->velocityMove(0, 2);
-    if( y > -230 ) iVelocityControl->velocityMove(0, 1);
-    if( y < -270 ) iVelocityControl->velocityMove(0, -1);
-    if( y < -290 ) iVelocityControl->velocityMove(0, -2);
-    if( y < -310 ) iVelocityControl->velocityMove(0, -5);
+    if( y > -190 ) iVelocityControl->velocityMove(0, 5.0);
+    if( y > -210 ) iVelocityControl->velocityMove(0, 2.0);
+    if( y > -230 ) iVelocityControl->velocityMove(0, 1.0);
+    if( y < -270 ) iVelocityControl->velocityMove(0, -1.0);
+    if( y < -290 ) iVelocityControl->velocityMove(0, -2.0);
+    if( y < -310 ) iVelocityControl->velocityMove(0, -5.0);
 
 /*
     if( x > -150 ) iPositionControl->relativeMove(0, 4);
