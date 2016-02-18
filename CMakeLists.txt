@@ -23,7 +23,7 @@ option(ENABLE_TwoCanBusThreeWrappers "Choose if you want to compile TwoCanBusThr
 option(ENABLE_dumpCanBus "Choose if you want to compile dumpCanBus" TRUE)
 
 option(ENABLE_executionCore1 "Choose if you want to compile executionCore1" TRUE)
-option(ENABLE_executionCore2 "Choose if you want to compile executionCore1" TRUE)
+option(ENABLE_executionCore2 "Choose if you want to compile executionCore2" TRUE)
 
 option(ENABLE_oneCanBusOneWrapper "Choose if you want to compile oneCanBusOneWrapper" TRUE)
 

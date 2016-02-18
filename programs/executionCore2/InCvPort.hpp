@@ -11,6 +11,7 @@
 #define VOCAB_STOP_FOLLOWING VOCAB4('s','f','o','l')
 
 using namespace yarp::os;
+using namespace yarp::dev;
 
 namespace teo
 {
@@ -29,6 +30,7 @@ class InCvPort : public BufferedPort<Bottle> {
         void setIPositionControl(yarp::dev::IPositionControl *iPositionControl) {
             this->iPositionControl = iPositionControl; 
         }
+
         void setIVelocityControl(yarp::dev::IVelocityControl *iVelocityControl) {
             this->iVelocityControl = iVelocityControl;
         }

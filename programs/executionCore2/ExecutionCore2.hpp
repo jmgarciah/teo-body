@@ -14,6 +14,7 @@
 #define VOCAB_STOP_FOLLOWING VOCAB4('s','f','o','l')
 
 using namespace yarp::os;
+using namespace yarp::dev;
 
 namespace teo
 {

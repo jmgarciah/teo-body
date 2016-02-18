@@ -1,6 +1,7 @@
 // -*- mode:C++; tab-width:4; c-basic-offset:4; indent-tabs-mode:nil -*-
 
 #include "ExecutionCore2.hpp"
+#include "InCvPort.hpp"
 
 namespace teo
 {
@@ -36,13 +37,14 @@ bool ExecutionCore2::configure(ResourceFinder &rf) {
         return false;
     }
 
-    yarp::dev::IVelocityControl *iVelocityControl;
+    //yarp::dev::IVelocityControl *iVelocityControl;
     if( ! headDevice.view(iVelocityControl) ) {
         printf("view(iVelocityControl) not worked.\n");
         return false;
     }
+ //   inCvPort.setIVelocityControl(iVelocityControl);
+    iVelocityControl->setVelocityMode();
     inCvPort.setIVelocityControl(iVelocityControl);
-
     //-----------------OPEN LOCAL PORTS------------//
  //   inSrPort.setInCvPortPtr(&inCvPort);
     inCvPort.useCallback();
