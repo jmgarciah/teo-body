@@ -3,6 +3,7 @@
 
 add_subdirectory(executionCore1)
 add_subdirectory(executionCore2)
+add_subdirectory(executionCore3)
 
 add_subdirectory(dumpCanBus)
 
