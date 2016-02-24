@@ -38,13 +38,13 @@ bool ExecutionCore2::configure(ResourceFinder &rf) {
     }
 
     //yarp::dev::IVelocityControl *iVelocityControl;
-    if( ! headDevice.view(iVelocityControl) ) {
+    if( ! headDevice.view(iPositionControl) ) {
         printf("view(iVelocityControl) not worked.\n");
         return false;
     }
- //   inCvPort.setIVelocityControl(iVelocityControl);
-    iVelocityControl->setVelocityMode();
-    inCvPort.setIVelocityControl(iVelocityControl);
+    inCvPort.setIPositionControl(iPositionControl);
+//    iVelocityControl->setVelocityMode();
+//    inCvPort.setIVelocityControl(iVelocityControl);
     //-----------------OPEN LOCAL PORTS------------//
  //   inSrPort.setInCvPortPtr(&inCvPort);
     inCvPort.useCallback();
