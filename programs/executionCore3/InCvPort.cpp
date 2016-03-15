@@ -37,10 +37,10 @@ void InCvPort::onRead(Bottle& b) {
     printf("%f %f %f\n",x,y,z);
 
     if( x > -150 ) {
-        iVelocityControl->velocityMove(0, 5.0); //Id motor. Velocity [deg/s].
+        iVelocityControl->velocityMove(0, 8.0); //Id motor. Velocity [deg/s].
     }
     else if( x > -170 && x < -150) {
-        iVelocityControl->velocityMove(0, 2.0);
+        iVelocityControl->velocityMove(0, 3.0);
     }
     else if( x > -190 && x < -170 ) {
         iVelocityControl->velocityMove(0, 1.0);
@@ -52,17 +52,17 @@ void InCvPort::onRead(Bottle& b) {
         iVelocityControl->velocityMove(0, -1.0);
     }
     else if( x < -240 && x > -260 ) {
-        iVelocityControl->velocityMove(0, -2.0);
+        iVelocityControl->velocityMove(0, -3.0);
     }
     else if( x < -260 ) {
-        iVelocityControl->velocityMove(0, -5.0);
+        iVelocityControl->velocityMove(0, -8.0);
     }
 
     if( y > -190 ) {
-        iVelocityControl->velocityMove(0, 5.0); //Id motor. Velocity [deg/s].
+        iVelocityControl->velocityMove(0, 8.0); //Id motor. Velocity [deg/s].
     }
     else if( y > -210 && x < -190) {
-        iVelocityControl->velocityMove(0, 2.0);
+        iVelocityControl->velocityMove(0, 3.0);
     }
     else if( y > -230 && x < -210 ) {
         iVelocityControl->velocityMove(0, 1.0);
@@ -74,27 +74,11 @@ void InCvPort::onRead(Bottle& b) {
         iVelocityControl->velocityMove(0, -1.0);
     }
     else if( y < -290 && x > -310 ) {
-        iVelocityControl->velocityMove(0, -2.0);
+        iVelocityControl->velocityMove(0, -3.0);
     }
     else if( y < -310 ) {
-        iVelocityControl->velocityMove(0, -5.0);
+        iVelocityControl->velocityMove(0, -8.0);
     }
-
-    /*
-    if( x > -150 ) iPositionControl->relativeMove(0, 4);
-    if( x > -170 ) iPositionControl->relativeMove(0, 2);
-    if( x > -190 ) iPositionControl->relativeMove(0, 1);
-    if( x < -220 ) iPositionControl->relativeMove(0, -1);
-    if( x < -240 ) iPositionControl->relativeMove(0, -2);
-    if( x < -260 ) iPositionControl->relativeMove(0, -4);
-    //
-    if( y > -190 ) iPositionControl->relativeMove(1, 4);
-    if( y > -210 ) iPositionControl->relativeMove(1, 2);
-    if( y > -230 ) iPositionControl->relativeMove(1, 1);
-    if( y < -270 ) iPositionControl->relativeMove(1, -1);
-    if( y < -290 ) iPositionControl->relativeMove(1, -2);
-    if( y < -310 ) iPositionControl->relativeMove(1, -4);
-*/
 
 }
 
