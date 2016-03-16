@@ -36,48 +36,56 @@ void InCvPort::onRead(Bottle& b) {
 
     printf("%f %f %f\n",x,y,z);
 
-    if( x > -150 ) {
-        iVelocityControl->velocityMove(0, 8.0); //Id motor. Velocity [deg/s].
+    if( x > 215 ) {
+        iVelocityControl->velocityMove(0, 6.0); //Id motor. Velocity [deg/s].
     }
-    else if( x > -170 && x < -150) {
-        iVelocityControl->velocityMove(0, 3.0);
+    else if( x > 195 && x < 215 ) {
+        iVelocityControl->velocityMove(0, 4.0);
     }
-    else if( x > -190 && x < -170 ) {
+    else if( x > 175 && x < 195 ) {
+        iVelocityControl->velocityMove(0, 2.0);
+    }
+    else if( x > 155 && x < 175 ) {
         iVelocityControl->velocityMove(0, 1.0);
     }
-    else if( x > -220 && x < -190 ) {
+    else if( x > 145 && x < 155 ) {
         iVelocityControl->velocityMove(0, 0.0);
     }
-    else if( x < -220 && x > -240 ) {
+    else if( x < 145 && x > 125 ) {
         iVelocityControl->velocityMove(0, -1.0);
     }
-    else if( x < -240 && x > -260 ) {
-        iVelocityControl->velocityMove(0, -3.0);
+    else if( x < 125 && x > 105 ) {
+        iVelocityControl->velocityMove(0, -2.0);
     }
-    else if( x < -260 ) {
-        iVelocityControl->velocityMove(0, -8.0);
+    else if( x < 105 && x > 85 ) {
+        iVelocityControl->velocityMove(0, -4.0);
+    }
+    else if( x < 85 ) {
+        iVelocityControl->velocityMove(0, -6.0);
     }
 
-    if( y > -190 ) {
-        iVelocityControl->velocityMove(0, 8.0); //Id motor. Velocity [deg/s].
+
+
+    if( y > 185 ) {
+        iVelocityControl->velocityMove(1, 5.0); //Id motor. Velocity [deg/s].
     }
-    else if( y > -210 && x < -190) {
-        iVelocityControl->velocityMove(0, 3.0);
+    else if( y > 165 && x < 185) {
+        iVelocityControl->velocityMove(1, 3.0);
     }
-    else if( y > -230 && x < -210 ) {
-        iVelocityControl->velocityMove(0, 1.0);
+    else if( y > 145 && x < 165 ) {
+        iVelocityControl->velocityMove(1, 1.0);
     }
-    else if( y > -270 && x < -220 ) {
-        iVelocityControl->velocityMove(0, 0.0);
+    else if( y > 135 && x < 145 ) {
+        iVelocityControl->velocityMove(1, 0.0);
     }
-    else if( y < -270 && x > -290 ) {
-        iVelocityControl->velocityMove(0, -1.0);
+    else if( y < 135 && x > 115 ) {
+        iVelocityControl->velocityMove(1, -1.0);
     }
-    else if( y < -290 && x > -310 ) {
-        iVelocityControl->velocityMove(0, -3.0);
+    else if( y < 115 && x > 95 ) {
+        iVelocityControl->velocityMove(1, -3.0);
     }
-    else if( y < -310 ) {
-        iVelocityControl->velocityMove(0, -8.0);
+    else if( y < 95 ) {
+        iVelocityControl->velocityMove(1, -5.0);
     }
 
 }
